@@ -1,0 +1,20 @@
+# Introduction
+When I first started building my Rare Gems web application, which allows users to discover rare sneakers and leave reviews, I didn’t fully understand the importance of security. At the time, I was focused on getting the app to work and didn’t consider how vulnerabilities in the app could lead to data breaches or attacks.
+
+Now that I’ve learned about threat modeling and basic security practices, I realize how critical it is to secure applications from the start. I’m a beginner in both development and cybersecurity, so I’ve been using a framework called PASTA (Process for Attack Simulation and Threat Analysis) to better understand where potential vulnerabilities could occur and how to address them.
+
+![PASTA data flow diagram](https://github.com/user-attachments/assets/1a92b905-0a82-44b2-9203-69dc9898376a)
+
+
+
+# PASTA Worksheet for Rare Gems Application
+
+| **Stages**                        | **Sneaker Company**                                                                                                                                                             |
+|------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **I. Define Business and Security Objectives** | 1. **User Reviews:** The app allows users to create, update, and delete reviews of rare sneakers, ensuring user data integrity is critical.<br>2. **Sneaker Data Storage:** The app uses an internal database to store sneaker information, so protecting this data from unauthorized access is essential.<br>3. **User Authentication:** The app requires secure user authentication and session management to prevent unauthorized access to user accounts. |
+| **II. Define the Technical Scope**            | **Technologies used by the application:** <br>1. SQL Database <br>2. SHA-256 Encryption <br>3. Web Application Interface <br> **Why prioritize these technologies?** <br> The SQL database is prioritized for efficiently managing and storing sneaker information and user reviews. SHA-256 encryption ensures that sensitive user data, such as passwords, is securely stored. The web application interface is crucial for user interaction, allowing them to browse sneakers and manage reviews. |
+| **III. Decompose Application**               | **Data Flow Diagram:** <br>1. **User → Web App:** User searches for rare sneakers or submits a review. <br>2. **Web App → Database:** Fetches sneaker information or stores user reviews. |
+| **IV. Threat Analysis**                      | **Types of Threats:** <br>1. **Internal Threats:** SQL injection attacks that could compromise the integrity of user reviews and sneaker data. <br>2. **External Threats:** Session hijacking, where an attacker could gain unauthorized access to user accounts and manipulate stored data. |
+| **V. Vulnerability Analysis**                | **Vulnerabilities:** <br>1. **Code Vulnerabilities:** Lack of prepared statements in SQL queries, which could lead to SQL injection attacks. <br>2. **Authentication Flaws:** Weak session management, making the app susceptible to session hijacking. |
+| **VI. Attack Modeling**                      | **Attack Tree:** <br>- **Root Node: User Data** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 1: SQL Injection** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Lack of Prepared Statements** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 2: Session Hijacking** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Weak Login Credentials** |
+| **VII. Risk Analysis and Impact**            | **Security Controls:** <br>1. Prepared Statements: Prevent SQL injection attacks by securing database queries. <br>2. Multi-Factor Authentication (MFA): Add an extra layer of security for user authentication. <br>3. Input Validation and Sanitization: Prevent XSS and other input-based attacks. <br>4. Session Timeout and Management: Implement secure session expiration to reduce the risk of session hijacking. |
