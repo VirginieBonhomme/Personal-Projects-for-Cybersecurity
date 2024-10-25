@@ -38,16 +38,15 @@ To educate employees about the dangers of phishing, network security, and the im
 
 ## Skills and Technologies
 
-- **Security Frameworks**: Familiar with NIST and ISO 27001 standards.
+- **Security Frameworks**: Familiar with NIST CSF standards.
 - **Tools**:
-  - Wireshark
-  - OWASP ZAP
+  - Google Sheets
+  - Figma 
 - **Programming Languages**:
-  - Python
   - JavaScript
   - SQL
 - **Threat Analysis**: Skilled in identifying and mitigating potential threats and vulnerabilities.
-- **Compliance**: Understanding of GDPR, HIPAA, and other regulatory requirements.
+
 
 ## Goals and Aspirations
 
