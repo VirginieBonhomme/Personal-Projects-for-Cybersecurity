@@ -8,14 +8,15 @@ I'm a cybersecurity enthusiast dedicated to understanding and improving the secu
 
 ## Projects Overview
 
-### 1. Small Business Security Audits
+### 1. Small Business Security Audits1. NIST CSF Security Control Assessment Tool
 
-I've conducted comprehensive security audits for a local small business, assessing their existing security measures and identifying potential vulnerabilities. This project involved:
+A comprehensive Security Control Assessment Tool aligned with the NIST Cybersecurity Framework (CSF) functions: Identify, Protect, Detect, Respond, and Recover. This tool aims to help businesses evaluate their security posture and take steps to protect, detect, and respond to threats effectively.
 
-- **Network Security Assessment**: Evaluating firewall configurations, network segmentation, and access controls.
-- **Vulnerability Scanning**: Utilizing tools like `nmap` and `Nessus` to uncover weaknesses.
-- **Policy Review**: Analyzing current security policies and compliance with industry standards.
-- **Recommendations**: Providing actionable steps to enhance security posture and mitigate risks.
+
+- ***Organized Assessment Table:*** The tool provides a detailed table of security controls categorized by NIST CSF functions.
+- ***Comprehensive Evaluation:*** Helps businesses assess current controls, identify gaps, and understand risk levels.
+- ***Free Download:*** Available for anyone to download and use for self-assessment.
+
 
 ### 2. Securing Web Applications
 
