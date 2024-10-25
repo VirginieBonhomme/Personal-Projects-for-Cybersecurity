@@ -8,7 +8,7 @@ I'm a cybersecurity enthusiast dedicated to understanding and improving the secu
 
 ## Projects Overview
 
-### 1. Small Business Security Audits1. NIST CSF Security Control Assessment Tool
+### 1. Small Business Security Audits  (NIST CSF Security Control Assessment)
 
 A comprehensive Security Control Assessment Tool aligned with the NIST Cybersecurity Framework (CSF) functions: Identify, Protect, Detect, Respond, and Recover. This tool aims to help businesses evaluate their security posture and take steps to protect, detect, and respond to threats effectively.
 
