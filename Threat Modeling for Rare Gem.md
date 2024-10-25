@@ -35,7 +35,11 @@ Unfortunately, the site is currently down, but you can check out the code on Git
 | **VI. Attack Modeling**                      | **Attack Tree:** <br>- **Root Node: User Data** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 1: SQL Injection** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Lack of Prepared Statements** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 2: Session Hijacking** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Weak Login Credentials** |
 | **VII. Risk Analysis and Impact**            | **Security Controls:** <br>1. Prepared Statements: Prevent SQL injection attacks by securing database queries. <br>2. Multi-Factor Authentication (MFA): Add an extra layer of security for user authentication. <br>3. Input Validation and Sanitization: Prevent XSS and other input-based attacks. <br>4. Session Timeout and Management: Implement secure session expiration to reduce the risk of session hijacking. |
 
-### Old Code
+
+## Explanation of Old Code:
+In the original code, the AuthenticationsController handles user login by finding the user based on the username and then verifying the password using @user.authenticate. If the credentials are valid, a token is generated and returned. However, there are a few potential issues: the code doesn’t handle the case where @user is nil, which could lead to an error, and the error message returned is too specific, which could give an attacker clues about whether the username or password was incorrect. Additionally, the token generation isn't detailed, which could pose security risks if not implemented properly.
+
+
 ```bash
 class AuthenticationsController < ApplicationController
   before_action :authorize_request, except: :login
@@ -110,14 +114,14 @@ end
 ```
 
 
-## Key Improvements:
+## How I Would Update the Code:
 
-- **Safe navigation (`@user&.authenticate`)**:  
-  This ensures that if `@user` is `nil`, it won’t raise an error when trying to call `authenticate` on a `nil` object.
+- **Introduce Safe Navigation Operator (`@user&.authenticate`)**:  
+  I would use the safe navigation operator (`@user&.authenticate`) to safely handle cases where `@user` is `nil`. This prevents the app from throwing an error when trying to call `authenticate` on a `nil` object if the username doesn’t exist.
+  
+- **Update Error Messages**:  
+ Instead of returning a specific error like `unauthorized`, I would replace it with a more generic error message such as `Invalid credentials`. This approach makes it harder for attackers to figure out whether it’s the username or password that is incorrect, improving security by preventing credential-based attacks.
 
-- **Generic error messages**:  
-  It’s a good practice to use generic error messages like `'Invalid credentials'` rather than `'unauthorized'`. This prevents attackers from distinguishing whether the username or password was incorrect.
-
-- **Token encoding**:  
-  Ensure that the `encode` method you’re using is secure. If it's JWT, use a library like `jwt` and include a strong secret or key. Here's an example of how to implement token encoding:
+- **Secure Token Handling with JWT**:  
+For the token, I would ensure that the encoding uses a secure method, such as JSON Web Tokens (JWT). I’d implement token generation with a secret key, setting an expiration time to enhance security. This would involve updating the encode method to securely encrypt the token and ensure that it can be safely decoded when needed.
 
