@@ -19,9 +19,11 @@ Unfortunately, the site is currently down, but you can check out the code on Git
 
 ![PASTA data flow diagram](https://github.com/user-attachments/assets/1a92b905-0a82-44b2-9203-69dc9898376a)
 
+![PASTA attack tree](https://github.com/user-attachments/assets/d306a075-38b1-4022-8c27-910717703cd8)
 
 
-# PASTA Worksheet for Rare Gems Application
+
+# PASTA for Rare Gems Application
 
 | **Stages**                        | **Sneaker Company**                                                                                                                                                             |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
