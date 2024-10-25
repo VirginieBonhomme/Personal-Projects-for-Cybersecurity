@@ -15,7 +15,7 @@ I developed a user-friendly **Security Control Assessment Tool** tailored specif
 
 This project serves as a practical solution for small businesses looking to enhance their cybersecurity without requiring extensive technical expertise or expensive third-party assessments.
 
-> Download the [Security Control Assessment Tool](#) and get started on improving your cybersecurity today!
+> Download the [Security Control Assessment Tool](https://docs.google.com/spreadsheets/d/1_1zBim_LPblcI5jSXWjRSnSFdANH4hNVssDpZ183ySU/edit?usp=sharing) and get started on improving your cybersecurity today!
 
 
 ![Nistcsfpage1](https://github.com/user-attachments/assets/f216fd65-9f5b-483b-bf80-5c5050d01be3)
