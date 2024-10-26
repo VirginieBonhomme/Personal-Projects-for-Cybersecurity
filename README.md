@@ -25,7 +25,7 @@ Revisiting my previous web applications, I've focused on integrating security fr
 - **Input Validation**: Implementing strict validation to prevent SQL injection.
 - **Authentication Enhancements**: Strengthening user authentication mechanisms with multi-factor authentication.
 - **Secure Data Handling**: Ensuring data encryption in transit and at rest.
-- **Code Review and Refactoring**: Analyzing code for security flaws and optimizing for better protection.
+- **Code Review**: Analyzing code for security flaws and optimizing for better protection.
 
 ### 3. Phishing Awareness Posters
 
