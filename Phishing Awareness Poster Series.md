@@ -41,3 +41,4 @@ Here are some of the key posters from the series:
   Promotes the use of multi-factor authentication (MFA) and strong passwords to protect personal and company data.
   
 ![Small2mfa](https://github.com/user-attachments/assets/0c7a4ec9-0e71-4cff-9b58-b4c3cc7490d9)
+
