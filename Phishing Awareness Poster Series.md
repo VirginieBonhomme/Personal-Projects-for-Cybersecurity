@@ -12,10 +12,10 @@ I developed clear, concise, and accessible information on common phishing tactic
 To capture attention and encourage engagement, I used vibrant, engaging visuals that illustrate key concepts. Each poster is designed to be eye-catching yet informative, using minimalistic icons and high-contrast colors to emphasize the importance of the cybersecurity topics covered.
 
 ### Awareness Campaign Strategy
-I strategically planned the distribution of these posters across the workplace, placing them in high-traffic areas where employees are likely to pause and read. This ensures repeated exposure to the messages, increasing retention and encouraging secure behavior.
+I strategically planned the distribution of these posters across my workplace, placing them in high-traffic areas where my coworkers are likely to pause and read. This ensures repeated exposure to the messages, increasing retention and encouraging secure behavior.
 
 ### Feedback and Iteration
-Throughout the project, I gathered feedback from employees on the effectiveness of the posters. This allowed me to refine my designs and improve the messaging for future iterations, ensuring the content remained relevant and engaging.
+Throughout the project, I gathered feedback from coworkers on the effectiveness of the posters. This allowed me to refine my designs and improve the messaging for future iterations, ensuring the content remained relevant and engaging.
 
 ## Poster Series Highlights
 Here are some of the key posters from the series:
