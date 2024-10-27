@@ -24,7 +24,6 @@ Revisiting my previous web applications, I've focused on integrating security fr
 
 - **Authentication Enhancements**: Strengthening user authentication mechanisms with multi-factor authentication.
 - **Secure Token Handling with JWT**: Ensuring data encryption in transit and at rest.
-- **Code Review**: Analyzing code for security flaws and optimizing for better protection.
 
 ### 3. Phishing Awareness Posters
 
