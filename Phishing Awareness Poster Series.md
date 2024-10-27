@@ -1,7 +1,7 @@
 # Phishing Awareness Poster Series: Cybersecurity Education
 
 ## Project Overview
-As a volunteer at IQEQ Law, I developed a comprehensive Phishing Awareness Poster Series aimed at educating the firm's employees about the risks of phishing, enhancing network security, and promoting the use of two-factor authentication (2FA). This initiative allowed me to leverage my expertise in educational content creation, visual design, and campaign strategy to foster a culture of security awareness within the legal firm.
+As an intern at IQEQ Law, I developed a comprehensive Phishing Awareness Poster Series aimed at educating the firm's employees about the risks of phishing, enhancing network security, and promoting the use of two-factor authentication (2FA). This initiative allowed me to leverage my expertise in educational content creation, visual design, and campaign strategy to foster a culture of security awareness within the legal firm.
 
 ## Project Details
 
