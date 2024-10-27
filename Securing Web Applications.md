@@ -17,10 +17,6 @@ Unfortunately, the site is currently down, but you can check out the code on Git
 
 ![RGmobie](https://github.com/user-attachments/assets/981820b1-5f01-484b-a9e8-dcdcd6370537)
 
-![PASTA data flow diagram](https://github.com/user-attachments/assets/1a92b905-0a82-44b2-9203-69dc9898376a)
-
-![PASTA attack tree](https://github.com/user-attachments/assets/d306a075-38b1-4022-8c27-910717703cd8)
-
 
 
 # PASTA for Rare Gems Application
@@ -28,100 +24,20 @@ Unfortunately, the site is currently down, but you can check out the code on Git
 | **Stages**                        | **Sneaker Company**                                                                                                                                                             |
 |------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **I. Define Business and Security Objectives** | 1. **User Reviews:** The app allows users to create, update, and delete reviews of rare sneakers, ensuring user data integrity is critical.<br>2. **Sneaker Data Storage:** The app uses an internal database to store sneaker information, so protecting this data from unauthorized access is essential.<br>3. **User Authentication:** The app requires secure user authentication and session management to prevent unauthorized access to user accounts. |
-| **II. Define the Technical Scope**            | **Technologies used by the application:** <br>1. SQL Database <br>2. Ruby on Rails API with RESTful JSON endpoints <br>3. Web Application Interface <br> **Why prioritize these technologies?** <br> The SQL database is prioritized for efficiently managing and storing sneaker information and user reviews. Ruby on Rails API is prioritized for backend functionality, exposing RESTful JSON endpoints to interact with the front-end and manage data. The web application interface is crucial for user interaction, allowing them to browse sneakers and manage reviews. |
-| **III. Decompose Application**               | **Data Flow Diagram:** <br>1. **User → Web App:** User searches for rare sneakers or submits a review. <br>2. **Web App → Database:** Fetches sneaker information or stores user reviews. |
-| **IV. Threat Analysis**                      | **Types of Threats:** <br>1. **Internal Threats:** SQL injection attacks that could compromise the integrity of user reviews and sneaker data. <br>2. **External Threats:** Session hijacking, where an attacker could gain unauthorized access to user accounts and manipulate stored data. |
-| **V. Vulnerability Analysis**                | **Vulnerabilities:** <br>1. **Code Vulnerabilities:** Lack of prepared statements in SQL queries, which could lead to SQL injection attacks. <br>2. **Authentication Flaws:** Weak session management, making the app susceptible to session hijacking. |
-| **VI. Attack Modeling**                      | **Attack Tree:** <br>- **Root Node: User Data** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 1: SQL Injection** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Lack of Prepared Statements** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 2: Session Hijacking** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Weak Login Credentials** |
-| **VII. Risk Analysis and Impact**            | **Security Controls:** <br>1. Safe Navigation Operator: Use the safe navigation operator (@user&.authenticate) to safely handle cases where @user is nil. <br>2. Generic Error Messages: Replace specific error messages, such as "unauthorized," with more generic messages like "Invalid credentials."  <br>3. Session Timeout and Management: Implement secure session expiration to reduce the risk of session hijacking. |
-
-
-## Explanation of Old Code:
-In the original code, the AuthenticationsController handles user login by finding the user based on the username and then verifying the password using @user.authenticate. If the credentials are valid, a token is generated and returned. However, there are a few potential issues: the code doesn’t handle the case where @user is nil, which could lead to an error, and the error message returned is too specific, which could give an attacker clues about whether the username or password was incorrect. Additionally, the token generation isn't detailed, which could pose security risks if not implemented properly.
-
-
-```bash
-class AuthenticationsController < ApplicationController
-  before_action :authorize_request, except: :login
-
-  # POST /auth/login
-  def login
-    @user = User.find_by(username: login_params[:username])
-    if @user.authenticate(login_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
-      @token = encode({id: @user.id})
-      render json: {
-        user: @user.attributes.except("password_digest"),
-        token: @token
-        }, status: :ok
-    else
-      render json: { errors: 'unauthorized' }, status: :unauthorized
-    end
-  end
-  
-  # GET /auth/verify
-  def verify
-    render json: @current_user.attributes.except("password_digest"), status: :ok
-  end
-
-
-  private
-
-  def login_params
-    params.require(:authentication).permit(:username, :password)
-  end
-end
-```
-
-### Updated Code
-```bash
-class AuthenticationsController < ApplicationController
-  before_action :authorize_request, except: :login
-
-  # POST /auth/login
-  def login
-    @user = User.find_by(username: login_params[:username].strip) # sanitize input
-    if @user&.authenticate(login_params[:password]) # authenticate with BCrypt
-      @token = encode({ id: @user.id }) # Add expiration in token encoding
-      render json: {
-        user: @user.attributes.except("password_digest"),
-        token: @token
-        }, status: :ok
-    else
-      render json: { errors: 'unauthorized' }, status: :unauthorized
-    end
-  end
-  
-  # GET /auth/verify
-  def verify
-    render json: @current_user.attributes.except("password_digest"), status: :ok
-  end
-
-
-  private
-
-  def login_params
-    params.require(:authentication).permit(:username, :password).tap do |params|
-      params[:username] = params[:username].strip # sanitize input
-    end
-  end
-
-  # Encoding method with expiration
-  def encode(payload)
-    payload[:exp] = 24.hours.from_now.to_i # Set token to expire in 24 hours
-    JWT.encode(payload, 'your_secret_key') # Use a real secret key here
-  end
-end
-```
-
+| **II. Define the Technical Scope**            | **Technologies used by the application:** <br>1. Application Flow: The controller facilitates login functionality, token generation, and user session verification. It interacts with the database (via ActiveRecord) to fetch and authenticate users. <br>2. Assets: Sensitive data like username, password, and JWTs generated in the login process are the critical assets that need to be protected.<br>3. Technology Stack: Ruby on Rails, ActiveRecord ORM, and Bcrypt for password hashing.  |
+| **III. Decompose Application**               |<br>1. ***Entry Points:*** The controller exposes two entry points: POST /auth/login and GET /auth/verify.<br>2. **Trust Boundaries:** User submits data through the login form, it passes through a trust boundary. At this point, it's important to ensure the input is properly validated. |
+| **IV. Threat Analysis**                      | **Types of Threats:** <br>1. ***Brute-force Attacks:*** Although the code uses Bcrypt for secure password handling, it could benefit from additional rate-limiting mechanisms to prevent attackers from brute-forcing passwords. <br>2. ***Session hijacking:*** where an attacker could gain unauthorized access to user accounts and manipulate stored data. |
+| **V. Vulnerability Analysis**                | **Vulnerabilities:** <br>1. ***Password Strength:*** Enforce strong password requirements and validate password complexity during account creation.<br>2. **Authentication Flaws:** Weak session management, making the app susceptible to session hijacking. |
+| **VI. Attack Modeling**                      | **Attack Tree:** <br>- **Root Node: Brute-force Attack on Authentication System** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 1: Attacker attempts to guess the correct username/password combination** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Attacker uses automated scripts to submit multiple login requests** <br> &nbsp;&nbsp;&nbsp;&nbsp; - **Branch 2: Session Hijacking** <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - **Sub-Branch: Weak Login Credentials** |
+| **VII. Risk Analysis**            | **Impact**<br>1. ***High Risk:*** Unauthorized access due to weak authentication could expose sensitive data,  <br>2. ***Moderate Risk:*** A JWT token replay attack could allow an attacker to impersonate a user  <br>3. ***Moderate Risk:*** Implement secure session expiration to reduce the risk of session hijacking. |
+| **VIII. Security Controls:**            | **Security Controls:** <br>1. ***Rate Limiting:*** Implement rate limiting to prevent brute-force attacks on the login endpoint.<br>2. ***JWT Security:*** Sign JWTs with a strong secret key, set expiration times, and ensure they are transmitted over HTTPS to avoid token hijacking. <br>3. ***Audit Logs:*** Keep track of failed login attempts, token issuances, and verifications for auditing. |
 
 ## How I Would Update the Code:
 
-- **Introduce Safe Navigation Operator (`@user&.authenticate`)**:  
-  I would use the safe navigation operator (`@user&.authenticate`) to safely handle cases where `@user` is `nil`. This prevents the app from throwing an error when trying to call `authenticate` on a `nil` object if the username doesn’t exist.
+- **Rate Limiting:** Protects against brute-force attacks by limiting the number of login attempts per IP or username.
   
-- **Update Error Messages**:  
- Instead of returning a specific error like `unauthorized`, I would replace it with a more generic error message such as `Invalid credentials`. This approach makes it harder for attackers to figure out whether it’s the username or password that is incorrect, improving security by preventing credential-based attacks.
-
-- **Secure Token Handling with JWT**:  
-For the token, I would ensure that the encoding uses a secure method, such as JSON Web Tokens (JWT). I’d implement token generation with a secret key, setting an expiration time to enhance security. This would involve updating the encode method to securely encrypt the token and ensure that it can be safely decoded when needed.
-
+- **MFA (Multi-factor Authentication):** Adds an additional layer of security by requiring a second factor (like a code sent to the user) for login.
+  
+- **Token Expiration and Rotation:** Ensures that tokens expire after a set time, preventing long-lived sessions, and supports token rotation.
+  
+- **Audit Logs:** Logs all login attempts, both successful and failed, for auditing and security monitoring purposes.
