@@ -1,21 +1,21 @@
 # Phishing Awareness Poster Series: Cybersecurity Education
 
 ## Project Overview
-As part of my journey into cybersecurity, I designed a series of **Phishing Awareness Posters** to educate employees about the dangers of phishing, network security, and the importance of two-factor authentication (2FA). This project allowed me to combine my skills in educational content creation, visual design, and campaign strategy to promote a culture of security awareness.
+As a volunteer at IQEQ Law, I developed a comprehensive Phishing Awareness Poster Series aimed at educating the firm's employees about the risks of phishing, enhancing network security, and promoting the use of two-factor authentication (2FA). This initiative allowed me to leverage my expertise in educational content creation, visual design, and campaign strategy to foster a culture of security awareness within the legal firm.
 
 ## Project Details
 
 ### Educational Content Creation
-I developed clear, concise, and accessible information on common phishing tactics, network security practices, and methods for protecting sensitive data. My goal was to ensure the messages were easy to understand, even for those with minimal technical knowledge.
+I crafted clear, concise, and accessible information detailing common phishing tactics, best practices for network security, and strategies for safeguarding sensitive data. My objective was to present the information in a manner that is easily understandable for all employees, regardless of their technical background.
 
 ### Visual Design
-To capture attention and encourage engagement, I used vibrant, engaging visuals that illustrate key concepts. Each poster is designed to be eye-catching yet informative, using minimalistic icons and high-contrast colors to emphasize the importance of the cybersecurity topics covered.
+To ensure the posters effectively captured attention and encouraged engagement, I employed vibrant and engaging visuals that clearly illustrate key cybersecurity concepts. Each poster features eye-catching designs with minimalistic icons and high-contrast colors, highlighting the critical importance of the cybersecurity topics addressed.
 
 ### Awareness Campaign Strategy
-I strategically planned the distribution of these posters across my workplace, placing them in high-traffic areas where my coworkers are likely to pause and read. This ensures repeated exposure to the messages, increasing retention and encouraging secure behavior.
+I strategically arranged the placement of these posters throughout IQEQ Law’s break rooms and other high-traffic areas where employees are likely to take breaks and absorb the information. This placement strategy ensures that the security messages receive repeated exposure, thereby enhancing retention and promoting secure behavior among staff members.
 
 ### Feedback and Iteration
-Throughout the project, I gathered feedback from coworkers on the effectiveness of the posters. This allowed me to refine my designs and improve the messaging for future iterations, ensuring the content remained relevant and engaging.
+Throughout the project, I solicited feedback from employees to assess the effectiveness of the posters. This input enabled me to refine the designs and improve the messaging for subsequent iterations, ensuring that the content remained relevant, engaging, and impactful for the firm’s workforce.
 
 ## Poster Series Highlights
 Here are some of the key posters from the series:
