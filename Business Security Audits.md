@@ -18,5 +18,6 @@ This project serves as a practical solution for small businesses looking to enha
 > Download the [Security Control Assessment Tool](https://docs.google.com/spreadsheets/d/1_1zBim_LPblcI5jSXWjRSnSFdANH4hNVssDpZ183ySU/edit?usp=sharing) and get started on improving your cybersecurity today!
 
 
-![Nistcsfpage1](https://github.com/user-attachments/assets/f216fd65-9f5b-483b-bf80-5c5050d01be3)
-![Nistcsfpage2](https://github.com/user-attachments/assets/6ebb6bce-fc46-479c-8654-4981db4b8f11)
+![Nistrisk1](https://github.com/user-attachments/assets/45534d32-6f74-4058-83e2-fc9075788aa8)
+![Nistrisk2](https://github.com/user-attachments/assets/8bf1792a-532d-4dc8-8a1b-7f9439d54f34)
+![Nistrisk3](https://github.com/user-attachments/assets/d26f9f3a-399e-4875-99f1-ec3c74544bfb)
