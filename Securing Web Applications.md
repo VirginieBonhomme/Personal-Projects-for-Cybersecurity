@@ -12,11 +12,44 @@ Unfortunately, the site is currently down, but you can check out the code on Git
 
 ![Raregems2](https://github.com/user-attachments/assets/4b28dfe4-1955-41b2-b546-b4b748b01319)
 
-![RGmoblie2](https://github.com/user-attachments/assets/849d8280-3fb9-4be8-bfe4-a9498b0c6d3d)
-
 
 ![RGmobie](https://github.com/user-attachments/assets/981820b1-5f01-484b-a9e8-dcdcd6370537)
 
+
+![RGmoblie2](https://github.com/user-attachments/assets/849d8280-3fb9-4be8-bfe4-a9498b0c6d3d)
+
+
+Ruby on Rails AuthenticationsController for login page
+``` Ruby
+class AuthenticationsController < ApplicationController
+  before_action :authorize_request, except: :login
+
+  # POST /auth/login
+  def login
+    @user = User.find_by(username: login_params[:username])
+    if @user.authenticate(login_params[:password]) #authenticate method provided by Bcrypt and 'has_secure_password'
+      @token = encode({id: @user.id})
+      render json: {
+        user: @user.attributes.except("password_digest"),
+        token: @token
+      }, status: :ok
+    else
+      render json: { errors: 'unauthorized' }, status: :unauthorized
+    end
+  end
+  
+  # GET /auth/verify
+  def verify
+    render json: @current_user.attributes.except("password_digest"), status: :ok
+  end
+
+  private
+
+  def login_params
+    params.require(:authentication).permit(:username, :password)
+  end
+end
+```
 
 
 # PASTA for Rare Gems Application
