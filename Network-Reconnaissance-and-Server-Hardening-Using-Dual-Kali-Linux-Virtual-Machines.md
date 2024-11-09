@@ -1,4 +1,4 @@
-# Network-Reconnaissance-and-Server-Hardening-Usi
+# Network-Reconnaissance-and-Server-Hardening
 
 **Objective**: Set up and secure a simple HTTP server to simulate real-world web server environments, analyze network traffic, and enhance penetration testing skills.
 
