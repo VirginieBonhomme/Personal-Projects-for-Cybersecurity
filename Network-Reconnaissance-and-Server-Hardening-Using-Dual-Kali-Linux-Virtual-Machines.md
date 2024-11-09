@@ -1,5 +1,4 @@
-# Network-Reconnaissance-and-Server-Hardening-Using-Dual-Kali-Linux-Virtual-Machines
-Set up a Python HTTP server on a Kali Linux Target VM with an Attacker VM for testing. Used nmap, netcat, and curl to identify vulnerabilities, demonstrated risks of misconfigurations, and applied security hardening to reduce exposure.
+# Network-Reconnaissance-and-Server-Hardening-Usi
 
 **Objective**: Set up and secure a simple HTTP server to simulate real-world web server environments, analyze network traffic, and enhance penetration testing skills.
 
